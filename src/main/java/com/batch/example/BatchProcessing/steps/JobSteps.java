@@ -31,6 +31,7 @@ public class JobSteps {
                 .reader(reader)
                 .processor(itemProcessor)
                 .writer(itemWriter)
+                .allowStartIfComplete(true) // if the job completed successfully first time, then second time this step wont execute, hence we have allowed multiple time run even if its already completed. It will get job information from jobRepository
                 .build();
     }
 
